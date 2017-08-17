@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150px"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="150px"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="CG"
+        android:gravity="center"
+        android:id="@+id/subject"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/location" />
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="150px"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="TW2GF2"
+        android:gravity="center"
+        android:id="@+id/location"
+        app:layout_constraintStart_toEndOf="@+id/subject"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/type" />
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="150px"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="Theory"
+        android:gravity="center"
+        android:id="@+id/type"
+        app:layout_constraintStart_toEndOf="@+id/location"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/start_timing" />
+
+    <TextView
+        android:id="@+id/start_timing"
+        android:layout_width="0px"
+        android:layout_height="75px"
+        android:text="9:00 AM"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/type" />
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="75px"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="10:00 AM"
+        android:gravity="center"
+        android:id="@+id/end_timing"
+        app:layout_constraintStart_toEndOf="@+id/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_timing"
+        android:textSize="12sp"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
