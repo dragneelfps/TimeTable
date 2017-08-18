@@ -1,66 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150px"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="150px">
 
 
     <TextView
-        android:layout_width="0px"
-        android:layout_height="150px"
-        app:layout_constraintHorizontal_weight="1"
-        android:text="CG"
-        android:gravity="center"
         android:id="@+id/subject"
+        android:layout_width="0px"
+        android:layout_height="150px"
+        android:gravity="center"
+        android:text="CG"
         android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/location"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/location" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="0px"
-        android:layout_height="150px"
-        app:layout_constraintHorizontal_weight="1"
-        android:text="TW2GF2"
-        android:gravity="center"
         android:id="@+id/location"
-        app:layout_constraintStart_toEndOf="@+id/subject"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/type" />
-
-    <TextView
         android:layout_width="0px"
         android:layout_height="150px"
-        app:layout_constraintHorizontal_weight="1"
-        android:text="Theory"
         android:gravity="center"
+        android:text="TW2GF2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/type"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/subject"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/type"
-        app:layout_constraintStart_toEndOf="@+id/location"
+        android:layout_width="0px"
+        android:layout_height="150px"
+        android:gravity="center"
+        android:text="Theory"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/start_timing" />
+        app:layout_constraintEnd_toStartOf="@+id/start_timing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/location"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/start_timing"
         android:layout_width="0px"
         android:layout_height="75px"
-        android:text="9:00 AM"
         android:gravity="center"
+        android:text="9:00 AM"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/end_timing"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/type" />
+        app:layout_constraintStart_toEndOf="@+id/type"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/end_timing"
         android:layout_width="0px"
         android:layout_height="75px"
-        app:layout_constraintHorizontal_weight="1"
-        android:text="10:00 AM"
         android:gravity="center"
-        android:id="@+id/end_timing"
-        app:layout_constraintStart_toEndOf="@+id/type"
+        android:text="10:00 AM"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_timing"
-        android:textSize="12sp"/>
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/type"
+        app:layout_constraintTop_toBottomOf="@+id/start_timing" />
 
+    <TextView
+        android:id="@+id/subject_full"
+        android:layout_width="0px"
+        android:layout_height="50px"
+        android:text="Computer Graphics"
+        app:layout_constraintBottom_toTopOf="@id/notes"
+        app:layout_constraintEnd_toStartOf="@+id/teacher"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subject" />
+
+    <TextView
+        android:id="@+id/teacher"
+        android:layout_width="0px"
+        android:layout_height="50px"
+        android:gravity="end"
+        android:text="Anil Sir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/subject_full"
+        app:layout_constraintTop_toBottomOf="@id/subject"/>
+
+    <TextView
+        android:id="@+id/notes"
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:text="Awesome subject"
+        app:layout_constraintBottom_toTopOf="@id/notes"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

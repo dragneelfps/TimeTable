@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.day_list_item.view.*
@@ -31,6 +32,22 @@ class DayFragmentAdapter : BaseAdapter{
         view.type.text = mClasses.get(postion).type
         view.start_timing.text = mClasses.get(postion).startTime
         view.end_timing.text = mClasses.get(postion).endTime
+        view.subject_full.visibility = View.GONE
+        view.teacher.visibility = View.GONE
+        view.notes.visibility = View.GONE
+        view.setOnClickListener { view ->
+            if(view.subject_full.isShown){
+                view.subject_full.visibility = View.GONE
+                view.teacher.visibility = View.GONE
+                view.notes.visibility = View.GONE
+                view.layoutParams = AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,150)
+            }else{
+                view.subject_full.visibility = View.VISIBLE
+                view.teacher.visibility = View.VISIBLE
+                view.notes.visibility = View.VISIBLE
+                view.layoutParams = AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,250)
+            }
+        }
         return view
     }
 
