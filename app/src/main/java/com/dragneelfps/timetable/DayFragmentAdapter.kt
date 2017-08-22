@@ -29,9 +29,14 @@ class DayFragmentAdapter : BaseAdapter{
     override fun getView(postion: Int, convertView: View?, viewGroup: ViewGroup?): View {
         var view = mInflater.inflate(R.layout.day_list_item,viewGroup,false)
         view.subject.text = mClasses.get(postion).subjectShort
+        view.subject_full.text = mClasses.get(postion).subject
         view.type.text = mClasses.get(postion).type
         view.start_timing.text = mClasses.get(postion).startTime
         view.end_timing.text = mClasses.get(postion).endTime
+        view.location.text = mClasses.get(postion).location
+        view.teacher.text = mClasses.get(postion).teacher
+        view.notes.text = mClasses.get(postion).notes
+
         view.subject_full.visibility = View.GONE
         view.teacher.visibility = View.GONE
         view.notes.visibility = View.GONE

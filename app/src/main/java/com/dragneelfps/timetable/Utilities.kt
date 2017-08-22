@@ -39,6 +39,8 @@ object DatabaseContract  {
             val COLUMN_NAME_SUBJECT = "Subject"
             val COLUMN_NAME_SUBJECT_SHORT = "SubjectShort"
             val COLUMN_NAME_TEACHER = "Teacher"
+            val COLUMN_NAME_LOCATION = "Location"
+            val COLUMN_NAME_NOTES = "Notes"
             //sql query to create the table
             @JvmField val SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_NAME_DAY + " TEXT," +
@@ -47,7 +49,9 @@ object DatabaseContract  {
                     COLUMN_NAME_TYPE + " TEXT," +
                     COLUMN_NAME_SUBJECT + " TEXT," +
                     COLUMN_NAME_SUBJECT_SHORT + " TEXT," +
-                    COLUMN_NAME_TEACHER + " TEXT)"
+                    COLUMN_NAME_TEACHER + " TEXT," +
+                    COLUMN_NAME_LOCATION + " TEXT," +
+                    COLUMN_NAME_NOTES + "TEXT)"
             //sql query to empty the table
             @JvmField val SQL_DELETE_TABLE_ROWS = "DELETE FROM " + TABLE_NAME
         }
@@ -64,6 +68,8 @@ object SampleCreater{
         val subjects_short = arrayOf("CG","PR","Java","TOC")
         val types = arrayOf("Lab","Theory")
         val teachers = arrayOf("Anil","Swati","Mahesh","Roy")
+        val locations = arrayOf("TW1FF1","TW2TF3","SPS14","TW3GF1")
+        val notes = "Loren Ipsum"
 
         var valuesList = ArrayList<ContentValues>()
         var rd = Random()
@@ -79,6 +85,8 @@ object SampleCreater{
             values.put(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT,subjects[sb])
             values.put(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT_SHORT,subjects_short[sb])
             values.put(DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER,teachers[rd.nextInt(teachers.size)])
+            values.put(DatabaseContract.TimeTableEntry.COLUMN_NAME_LOCATION,locations[rd.nextInt(locations.size)])
+            values.put(DatabaseContract.TimeTableEntry.COLUMN_NAME_NOTES,notes)
             Log.d("debug",values.toString())
             valuesList.add(values)
         }
@@ -99,7 +107,7 @@ object SampleCreater{
         var projection = arrayOf(DatabaseContract.TimeTableEntry.COLUMN_NAME_DAY,DatabaseContract.TimeTableEntry.COLUMN_NAME_START_TIME,
                 DatabaseContract.TimeTableEntry.COLUMN_NAME_END_TIME,DatabaseContract.TimeTableEntry.COLUMN_NAME_TYPE,
                 DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT,DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT_SHORT,
-                DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER)
+                DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER,DatabaseContract.TimeTableEntry.COLUMN_NAME_LOCATION,DatabaseContract.TimeTableEntry.COLUMN_NAME_NOTES)
         var cursor = db.query(
                 DatabaseContract.TimeTableEntry.TABLE_NAME,
                 projection,
@@ -118,7 +126,9 @@ object SampleCreater{
             var subject = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT))
             var subject_short = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT_SHORT))
             var teacher = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER))
-            var row = "$day : $start_time : $end_time : $type : $subject : $subject_short : $teacher"
+            var location = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_LOCATION))
+            var notes = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_NOTES))
+            var row = "$day : $start_time : $end_time : $type : $subject : $subject_short : $teacher : $location : $notes"
             rows.add(row)
         }
 
@@ -143,7 +153,7 @@ object QueryHelper{
         var projection = arrayOf(DatabaseContract.TimeTableEntry.COLUMN_NAME_DAY,DatabaseContract.TimeTableEntry.COLUMN_NAME_START_TIME,
                 DatabaseContract.TimeTableEntry.COLUMN_NAME_END_TIME,DatabaseContract.TimeTableEntry.COLUMN_NAME_TYPE,
                 DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT,DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT_SHORT,
-                DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER)
+                DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER,DatabaseContract.TimeTableEntry.COLUMN_NAME_LOCATION,DatabaseContract.TimeTableEntry.COLUMN_NAME_NOTES)
         var selection = "${DatabaseContract.TimeTableEntry.COLUMN_NAME_DAY} = ?"
         var selectionArgs = arrayOf(day)
         var cursor = db.query(
@@ -163,7 +173,9 @@ object QueryHelper{
             var subject = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT))
             var subject_short = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_SUBJECT_SHORT))
             var teacher = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_TEACHER))
-            var newClass = Class(day,start_time,end_time,type,subject,subject_short,teacher)
+            var location = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_LOCATION))
+            var notes = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.TimeTableEntry.COLUMN_NAME_NOTES))
+            var newClass = Class(day,start_time,end_time,type,subject,subject_short,teacher,location,notes)
             Log.d("debug",newClass.toString())
             classes.add(newClass)
         }

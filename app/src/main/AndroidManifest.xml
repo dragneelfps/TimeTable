@@ -8,18 +8,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme">
+        android:theme="@style/MyAppPrimaryTheme">
         <activity android:name=".MainActivity">
 
         </activity>
         <activity android:name=".EditTimeTable" >
+
+        </activity>
+        <activity android:name=".AddClass"
+            android:windowSoftInputMode="adjustPan" > <!--adjectPan to shift edittext upwards when soft keyboard is opened-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddClass"></activity>
     </application>
 
 </manifest>
