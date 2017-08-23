@@ -12,16 +12,16 @@ import kotlinx.android.synthetic.main.day_fragment.view.*
 /**
  * Created by srawa on 8/14/2017.
  */
-class SampleFragment : Fragment() {
+class IndividualDayFragment : Fragment() {
 
     lateinit var classes: ArrayList<Class>
     lateinit var dayFragmentAdapter : DayFragmentAdapter
 
 
     companion object {
-        fun newInstance(context: Context,day: String): SampleFragment{
+        fun newInstance(context: Context,day: String): IndividualDayFragment {
             Log.d("debug","Fragment created for $day")
-            var fg = SampleFragment()
+            var fg = IndividualDayFragment()
             fg.classes = QueryHelper.queryByDay(context,day)    //query is done only when the fragment is created and then stored as class variable
             fg.dayFragmentAdapter = DayFragmentAdapter(context,fg.classes)  //adapter is created and stored
             return fg

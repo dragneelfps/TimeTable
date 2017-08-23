@@ -51,9 +51,10 @@ object DatabaseContract  {
                     COLUMN_NAME_SUBJECT_SHORT + " TEXT," +
                     COLUMN_NAME_TEACHER + " TEXT," +
                     COLUMN_NAME_LOCATION + " TEXT," +
-                    COLUMN_NAME_NOTES + "TEXT)"
+                    COLUMN_NAME_NOTES + " TEXT)"
             //sql query to empty the table
             @JvmField val SQL_DELETE_TABLE_ROWS = "DELETE FROM " + TABLE_NAME
+            @JvmField val SQL_DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
         }
     }
 }
@@ -93,9 +94,11 @@ object SampleCreater{
 
         var mDbHelper = TimeTableDbHelper(context)
         var db = mDbHelper.writableDatabase
-        db.execSQL(DatabaseContract.TimeTableEntry.SQL_DELETE_TABLE_ROWS)
+        //db.execSQL(DatabaseContract.TimeTableEntry.SQL_DELETE_TABLE_ROWS)
+        db.execSQL(DatabaseContract.TimeTableEntry.SQL_DROP_TABLE)
+        db.execSQL(DatabaseContract.TimeTableEntry.SQL_CREATE_ENTRIES)
         for(values in valuesList){
-            val newRowId = db.insert(DatabaseContract.TimeTableEntry.TABLE_NAME,null,values)
+            val newRowId = db.insertOrThrow(DatabaseContract.TimeTableEntry.TABLE_NAME,null,values)
             Log.d("debug","New Row Inserted with Id : $newRowId")
         }
         mDbHelper.close()
@@ -180,6 +183,7 @@ object QueryHelper{
             classes.add(newClass)
         }
         mDbHelper.close()
+        Log.d("debug","Hey")
         return classes
     }
 }

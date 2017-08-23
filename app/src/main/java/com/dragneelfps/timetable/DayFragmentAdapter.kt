@@ -50,7 +50,7 @@ class DayFragmentAdapter : BaseAdapter{
                 view.subject_full.visibility = View.VISIBLE
                 view.teacher.visibility = View.VISIBLE
                 view.notes.visibility = View.VISIBLE
-                view.layoutParams = AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,250)
+                view.layoutParams = AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,AbsListView.LayoutParams.WRAP_CONTENT)
             }
         }
         return view

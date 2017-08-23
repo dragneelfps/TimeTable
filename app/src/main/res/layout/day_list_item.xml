@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150px">
+    android:layout_height="wrap_content">
 
 
     <TextView
@@ -13,6 +13,7 @@
         android:gravity="center"
         android:text="CG"
         android:textSize="32sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/location"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -26,6 +27,7 @@
         android:gravity="center"
         android:text="TW2GF2"
         android:textSize="16sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/type"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -39,6 +41,7 @@
         android:gravity="center"
         android:text="Theory"
         android:textSize="18sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/start_timing"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -52,6 +55,7 @@
         android:gravity="center"
         android:text="9:00 AM"
         android:textSize="12sp"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/end_timing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -66,6 +70,7 @@
         android:gravity="center"
         android:text="10:00 AM"
         android:textSize="12sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -75,9 +80,11 @@
     <TextView
         android:id="@+id/subject_full"
         android:layout_width="0px"
-        android:layout_height="50px"
+        android:layout_height="wrap_content"
         android:text="Computer Graphics"
-        app:layout_constraintBottom_toTopOf="@id/notes"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/teacher"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +93,11 @@
     <TextView
         android:id="@+id/teacher"
         android:layout_width="0px"
-        android:layout_height="50px"
-        android:gravity="end"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Anil Sir"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/subject_full"
         app:layout_constraintTop_toBottomOf="@id/subject"/>
@@ -96,9 +105,12 @@
     <TextView
         android:id="@+id/notes"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="wrap_content"
         android:text="Awesome subject"
-        app:layout_constraintBottom_toTopOf="@id/notes"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/subject_full"
         app:layout_constraintStart_toStartOf="parent" />
 
 
