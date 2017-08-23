@@ -3,10 +3,10 @@
 
     <group android:id="@+id/main_items" android:checkableBehavior="single">
 
-        <item android:id="@+id/time_table"
-            android:title="Time Table" />
-        <item android:id="@+id/dummy"
-            android:title="Dummy" />
+        <item android:id="@+id/time_table_item"
+            android:title="Time Table" android:checked="true" />
+        <item android:id="@+id/edit_time_table_item"
+            android:title="Edit Time Table" />
 
     </group>
 

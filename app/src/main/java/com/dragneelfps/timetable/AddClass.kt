@@ -1,5 +1,6 @@
 package com.dragneelfps.timetable
 
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_add_class.*
@@ -8,28 +9,29 @@ import android.app.TimePickerDialog
 import android.support.design.widget.Snackbar
 import android.text.Editable
 import android.text.SpannableStringBuilder
-import android.view.Menu
-import android.view.MenuItem
+import android.util.Log
+import android.view.*
 import kotlinx.android.synthetic.main.activity_add_class_new.*
+import kotlinx.android.synthetic.main.activity_add_class_new.view.*
 
-class AddClass : AppCompatActivity() {
+class AddClass : Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        var view = inflater!!.inflate(R.layout.activity_add_class_new,container,false)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_36dp)
+        return view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_class_new)
-
-        setSupportActionBar(appbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Add Class"
-
-
-
-
+        Log.d("debug","here2")
+        setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.add_class_confim_menu,menu)
-        return true
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
+        Log.d("debug","here")
+        inflater.inflate(R.menu.add_class_confim_menu,menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

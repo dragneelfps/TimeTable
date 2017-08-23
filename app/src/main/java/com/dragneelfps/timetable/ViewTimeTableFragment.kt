@@ -9,63 +9,50 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.GravityCompat
 import android.support.v7.widget.Toolbar
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_view_time_table.*
+import kotlinx.android.synthetic.main.activity_view_time_table.view.*
 import kotlin.collections.ArrayList
 
-class ViewTimeTableActivity : AppCompatActivity() {
+class ViewTimeTableFragment : Fragment() {
     /*
     *   Current Main Activity
     *   Opens up the set TimeTable view
      */
 
-    lateinit var classes: ArrayList<Class>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_time_table)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var view = inflater!!.inflate(R.layout.activity_view_time_table,container,false)
+        view.pager.adapter = TimeTablePagerAdapter(context,fragmentManager)
+        (activity as AppCompatActivity).supportActionBar?.title = "Time Table"
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_reorder_black_24dp)
+        view.tabs.setupWithViewPager(view.pager)
 
 
-        setSupportActionBar(toolbar as Toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_reorder_black_24dp)
-
-        /*
-        *   To create and read Sample database of TimeTable
-         */
-        SampleCreater.create(applicationContext)   //Creates new random database for the TimeTable
-        //SampleCreater.read(applicationContext)
-
-        var timeTableAdapter = TimeTablePagerAdapter(applicationContext,supportFragmentManager)
-        pager.adapter = timeTableAdapter
-
-        tabs.setupWithViewPager(pager)
-
-
+        return view
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
         if(item != null) {
-            when (item.itemId) {
+            when (item.itemId){
                 R.id.home ->{
-                    drawer_layout.openDrawer(GravityCompat.START)
+                    Log.d("debug","HereADAWDAWD")
+                    activity.drawer_layout.openDrawer(GravityCompat.START)
                     return true
                 }
-                else -> return super.onOptionsItemSelected(item)
             }
         }
-        else
-            return super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        if(isNavOpen())
-            drawer_layout.closeDrawer(GravityCompat.START)
-        else
-            super.onBackPressed()
-    }
-
-    fun isNavOpen(): Boolean{
-        return drawer_layout.isDrawerOpen(GravityCompat.START)
+        return super.onOptionsItemSelected(item)
     }
 }
 

@@ -7,16 +7,6 @@
     android:focusableInTouchMode="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-    </android.support.design.widget.AppBarLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +24,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/day_text"/>
@@ -46,7 +36,7 @@
                 app:layout_constraintTop_toBottomOf="@id/dayTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/subject_text"/>
@@ -58,7 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@id/subjectTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/type_text"/>
@@ -70,7 +60,7 @@
                 app:layout_constraintTop_toBottomOf="@id/typeTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/location_text"/>
@@ -82,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@id/locationTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/start_time_text"/>
@@ -94,7 +84,7 @@
                 app:layout_constraintTop_toBottomOf="@id/startTimeTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/end_time_text"/>
@@ -106,7 +96,7 @@
                 app:layout_constraintTop_toBottomOf="@id/endTimeTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/teacher_text"/>
@@ -118,7 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@id/teacherTextWrapper"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="32dp">
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/notes_text"/>
