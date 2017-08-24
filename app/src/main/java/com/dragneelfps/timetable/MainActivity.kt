@@ -38,13 +38,13 @@ class MainActivity: AppCompatActivity() {
                 var ft = supportFragmentManager.beginTransaction()
                 ft.replace(R.id.content_view,ViewTimeTableFragment())
                 ft.commit()
-                supportActionBar?.title = "Time Table"
             }else if(item.itemId == R.id.edit_time_table_item){
                 Log.d("debug","Edit selected")
                 var ft = supportFragmentManager.beginTransaction()
                 ft.replace(R.id.content_view,EditTimeTable())
                 ft.commit()
-                supportActionBar?.title = "Edit Time Table"
+            }else if(item.itemId == R.id.settings_item){
+                supportFragmentManager.beginTransaction().replace(R.id.content_view,SettingsFragment()).commit()
             }
             drawer_layout.closeDrawers()
             true
@@ -55,5 +55,8 @@ class MainActivity: AppCompatActivity() {
 
     }
 
-
+    override fun onBackPressed() {
+        drawer_layout.closeDrawers()
+        super.onBackPressed()
+    }
 }

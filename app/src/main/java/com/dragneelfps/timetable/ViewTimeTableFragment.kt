@@ -45,7 +45,7 @@ class ViewTimeTableFragment : Fragment() {
 
         if(item != null) {
             when (item.itemId){
-                R.id.home ->{
+                android.R.id.home ->{
                     Log.d("debug","HereADAWDAWD")
                     activity.drawer_layout.openDrawer(GravityCompat.START)
                     return true

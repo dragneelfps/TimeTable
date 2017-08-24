@@ -7,6 +7,9 @@
             android:title="Time Table" android:checked="true" />
         <item android:id="@+id/edit_time_table_item"
             android:title="Edit Time Table" />
+        <item android:id="@+id/settings_item"
+            android:title="Settings" />
+
 
     </group>
 

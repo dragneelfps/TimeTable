@@ -20,6 +20,7 @@ class AddClass : Fragment() {
         var view = inflater!!.inflate(R.layout.activity_add_class_new,container,false)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_36dp)
+        (activity as AppCompatActivity).supportActionBar?.title = "Add Class"
         return view
     }
 
@@ -41,9 +42,14 @@ class AddClass : Fragment() {
                     Snackbar.make(root_view,"Class added",Snackbar.LENGTH_SHORT).show()
                     return true
                 }
+                android.R.id.home -> {
+                    fragmentManager.popBackStackImmediate()
+                }
             }
         }
         return super.onOptionsItemSelected(item)
 
     }
+
+
 }
